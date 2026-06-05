@@ -1,0 +1,15 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        int index = search(nums, target, 0, nums.length-1);
+        return index;
+    }
+
+    public int search(int[] nums, int target, int l, int r) {
+        int mid = l+((r-l)/2);
+        if(l>r) return -1;
+        if(nums[mid] == target) return mid;
+        else if(nums[mid] > target) 
+            return search(nums, target, l, mid-1);
+        else return search(nums, target, mid+1, r);
+    }
+}
